@@ -68,6 +68,16 @@ class APIManager: NSObject {
         
         //check data for errors
         
+        if let error = error {
+        
+        print("People data look up error \(error.localizedDescription)")
+        
+        }
+        
+        else if let httpResponce = reponse as? NSHTTPURLResponse {
+        
+            if httpResponce.statusCode == 200 {
+        
         //check the reponse
         
         //process the data
@@ -75,7 +85,28 @@ class APIManager: NSObject {
         do {
         let jsonData = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments)
             
-            print(jsonData["results"])
+            //print(jsonData["results"])
+            
+            //loop through the retrieved data and create a person object for each element of the json array
+            
+            if let retrievedPeople = jsonData["results"] as? [[String: AnyObject]] {
+            
+                var peopleArray = [Person]()
+                
+                for thisPerson in retrievedPeople {
+                 
+                    let newPerson = Person()
+                    newPerson.name = thisPerson["name"] as? NSString
+                    
+                    peopleArray.append(newPerson)
+                    
+                    print(newPerson.name!)
+                    
+                }//end for loop 
+                
+                StarWarsDataStore.sharedInstance.allPeople = peopleArray
+            
+            }
         
         }
         
@@ -84,6 +115,8 @@ class APIManager: NSObject {
             print("Error serializing JSON: \(error)")
         
         }
+            }//end status code
+        }//end else if
     
     }
 
