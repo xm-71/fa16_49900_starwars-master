@@ -10,5 +10,9 @@ import UIKit
 
 class PeopleTableViewController: UITableViewController {
     
+    override func viewWillAppear(animated: Bool) {
+        APIManager.sharedInstance.retrieveAllDataForModel("people")
+    }
+    
 
 }
