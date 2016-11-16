@@ -107,6 +107,14 @@ class APIManager: NSObject {
                 StarWarsDataStore.sharedInstance.allPeople = peopleArray
             
             }
+            
+            //post notification that the data has been processed
+            
+            dispatch_async(dispatch_get_main_queue()){
+            
+                NSNotificationCenter.defaultCenter().postNotificationName("PeopleDataRetrieved", object: self)
+            
+            }
         
         }
         

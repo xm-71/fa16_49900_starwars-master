@@ -311,7 +311,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qQ2-33-mKD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1870" y="-605"/>
+            <point key="canvasLocation" x="1864" y="-605"/>
         </scene>
         <!--Planets Table View Controller-->
         <scene sceneID="5Hs-8L-3Wt">
@@ -340,6 +340,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="2H1-tY-SP0"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="ruM-R9-KTZ">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C72-Wv-ePg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
